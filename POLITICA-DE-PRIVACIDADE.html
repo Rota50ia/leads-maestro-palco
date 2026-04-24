@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Maestro Palco</title>
+<meta name="description" content="Política de Privacidade do Maestro Palco, em conformidade com a Lei Geral de Proteção de Dados (LGPD), Lei nº 13.709/2018.">
+<meta name="robots" content="noindex, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ═══════════════════════════════════════════════
+     ATOMIC LAYER 0 — DESIGN TOKENS
+     Brad Frost · Atomic Design
+     Filosofia visual: Podium Stage (Midnight + Gold)
+  ═══════════════════════════════════════════════ */
+  :root {
+    /* Midnight surface hierarchy */
+    --m-midnight-950: #141422;
+    --m-midnight-900: #1C1C2E;
+    --m-midnight-800: #23233A;
+    --m-midnight-700: #2D2D4A;
+
+    /* Gold accents */
+    --m-gold-500:     #C9A84C;
+    --m-gold-300:     #F0D080;
+    --m-gold-glow:    rgba(201, 168, 76, 0.18);
+    --m-gold-dim:     rgba(201, 168, 76, 0.08);
+
+    /* Slate text */
+    --m-slate-200:    #E2E8F0;
+    --m-slate-400:    #94A3B8;
+    --m-slate-600:    #475569;
+
+    /* Semantic */
+    --m-ink:          #0A0A14;
+    --m-success:      #10B981;
+    --m-success-dim:  rgba(16, 185, 129, 0.10);
+
+    /* Borders */
+    --border-faint:   rgba(255, 255, 255, 0.06);
+    --border-soft:    rgba(255, 255, 255, 0.10);
+    --border-gold:    rgba(201, 168, 76, 0.30);
+
+    /* Spacing */
+    --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+    --sp-5: 20px;  --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+    --sp-12: 48px; --sp-16: 64px; --sp-20: 80px;
+
+    /* Typography */
+    --font-display: 'Montserrat', system-ui, sans-serif;
+    --font-body:    'Montserrat', system-ui, sans-serif;
+    --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+    /* Radius */
+    --r-sm: 4px;  --r-md: 6px;  --r-lg: 10px;  --r-xl: 14px;
+
+    /* Container */
+    --container: 720px;
+  }
+
+  /* ═══════════════════════════════════════════════
+     ATOMIC LAYER 1 — RESET / BASE (Atoms)
+  ═══════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--m-slate-200);
+    background: var(--m-midnight-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--m-gold-500);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  a:hover { color: var(--m-gold-300); }
+
+  /* ─── Atom: headings ─── */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 900;
+    color: var(--m-slate-200);
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--m-gold-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--sp-4);
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--m-slate-200);
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-2);
+  }
+
+  p { color: var(--m-slate-400); margin-bottom: var(--sp-4); }
+
+  ul, ol {
+    color: var(--m-slate-400);
+    padding-left: var(--sp-6);
+    margin-bottom: var(--sp-4);
+  }
+
+  li { margin-bottom: var(--sp-2); }
+
+  strong { color: var(--m-slate-200); font-weight: 600; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--m-midnight-800);
+    color: var(--m-gold-500);
+    padding: 2px 6px;
+    border-radius: var(--r-sm);
+  }
+
+  /* ─── Atom: container ─── */
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--sp-6);
+  }
+
+  /* ═══════════════════════════════════════════════
+     ATOMIC LAYER 2 — MOLECULES
+  ═══════════════════════════════════════════════ */
+
+  /* ─── Molecule: brand wordmark ─── */
+  .brand {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--m-gold-500);
+    text-decoration: none;
+  }
+  .brand:hover { color: var(--m-gold-300); }
+
+  /* ─── Molecule: legal badge ─── */
+  .legal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    background: var(--m-success-dim);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 99px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--m-success);
+    margin-bottom: var(--sp-6);
+  }
+  .legal-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--m-success);
+  }
+
+  /* ─── Molecule: meta info row ─── */
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin-top: var(--sp-4);
+    margin-bottom: 0;
+    font-size: 12px;
+    color: var(--m-slate-600);
+    font-family: var(--font-mono);
+  }
+  .meta-row span { color: var(--m-slate-400); }
+
+  /* ─── Molecule: article section ─── */
+  .policy-section {
+    padding: var(--sp-10) 0;
+    border-bottom: 1px solid var(--border-faint);
+  }
+  .policy-section:last-of-type { border-bottom: none; }
+
+  /* ─── Molecule: highlighted box ─── */
+  .info-box {
+    background: var(--m-gold-dim);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--r-lg);
+    padding: var(--sp-6);
+    margin: var(--sp-6) 0;
+  }
+  .info-box p { color: var(--m-slate-200); margin: 0; }
+  .info-box p + p { margin-top: var(--sp-3); }
+
+  /* ─── Molecule: rights grid ─── */
+  .rights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+    margin: var(--sp-6) 0;
+  }
+  @media (max-width: 540px) { .rights-grid { grid-template-columns: 1fr; } }
+
+  .right-card {
+    background: var(--m-midnight-800);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-lg);
+    padding: var(--sp-5);
+  }
+  .right-card .right-icon {
+    font-size: 20px;
+    margin-bottom: var(--sp-2);
+    display: block;
+  }
+  .right-card .right-title {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--m-slate-200);
+    display: block;
+    margin-bottom: var(--sp-1);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .right-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--m-slate-400);
+  }
+
+  /* ─── Molecule: table ─── */
+  .policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--sp-6) 0;
+    font-size: 14px;
+  }
+  .policy-table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--m-slate-600);
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .policy-table td {
+    padding: var(--sp-3) var(--sp-4);
+    color: var(--m-slate-400);
+    border-bottom: 1px solid var(--border-faint);
+    vertical-align: top;
+  }
+  .policy-table tr:last-child td { border-bottom: none; }
+  .policy-table td strong { color: var(--m-slate-200); }
+
+  /* ─── Molecule: article number ─── */
+  .art-ref {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--m-slate-600);
+    background: var(--m-midnight-800);
+    padding: 2px 8px;
+    border-radius: var(--r-sm);
+    margin-left: var(--sp-2);
+    font-weight: 400;
+  }
+
+  /* ═══════════════════════════════════════════════
+     ATOMIC LAYER 3 — ORGANISMS
+  ═══════════════════════════════════════════════ */
+
+  /* ─── Organism: header ─── */
+  .site-header {
+    background: var(--m-midnight-950);
+    border-bottom: 1px solid var(--border-faint);
+    padding: var(--sp-5) 0;
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-back {
+    font-size: 12px;
+    color: var(--m-slate-600);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    transition: color 0.2s;
+  }
+  .header-back:hover { color: var(--m-slate-400); }
+
+  /* ─── Organism: hero ─── */
+  .hero {
+    background: var(--m-midnight-950);
+    padding: var(--sp-16) 0 var(--sp-12);
+    border-bottom: 1px solid var(--border-faint);
+  }
+  .hero-kicker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--m-slate-600);
+    margin-bottom: var(--sp-4);
+  }
+  .hero h1 { margin-bottom: var(--sp-5); }
+  .hero-lead {
+    font-size: 17px;
+    color: var(--m-slate-400);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
+
+  /* ─── Organism: TOC (table of contents) ─── */
+  .toc-block {
+    background: var(--m-midnight-800);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6) var(--sp-8);
+    margin: var(--sp-10) 0;
+  }
+  .toc-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--m-slate-600);
+    margin-bottom: var(--sp-4);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+  }
+  .toc-list li {
+    counter-increment: toc;
+    margin-bottom: var(--sp-2);
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+  }
+  .toc-list li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--m-slate-600);
+    flex-shrink: 0;
+  }
+  .toc-list a {
+    font-size: 14px;
+    color: var(--m-slate-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: var(--m-gold-500); }
+
+  /* ─── Organism: main content ─── */
+  .policy-content {
+    padding: var(--sp-10) 0 var(--sp-20);
+  }
+
+  /* ─── Organism: contact block ─── */
+  .contact-block {
+    background: var(--m-midnight-800);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    margin-top: var(--sp-8);
+    text-align: center;
+  }
+  .contact-block h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--m-gold-500);
+    margin-bottom: var(--sp-3);
+  }
+  .contact-block p { margin: 0; font-size: 14px; }
+  .contact-email {
+    display: inline-block;
+    margin-top: var(--sp-4);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--m-slate-200);
+    background: var(--m-midnight-900);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-md);
+    padding: var(--sp-3) var(--sp-5);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-email:hover { border-color: var(--border-gold); color: var(--m-gold-500); }
+
+  /* ─── Organism: footer ─── */
+  .site-footer {
+    background: var(--m-midnight-950);
+    border-top: 1px solid var(--border-faint);
+    padding: var(--sp-10) 0;
+    text-align: center;
+  }
+  .site-footer .brand { display: block; margin-bottom: var(--sp-3); }
+  .footer-copy {
+    font-size: 12px;
+    color: var(--m-slate-600);
+    margin: 0;
+  }
+  .footer-copy a { color: var(--m-slate-600); }
+  .footer-copy a:hover { color: var(--m-slate-400); }
+
+  /* ═══════════════════════════════════════════════
+     UTILITY
+  ═══════════════════════════════════════════════ */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border-faint);
+    margin: var(--sp-8) 0;
+  }
+
+  @media (max-width: 600px) {
+    .policy-table { font-size: 13px; }
+    .policy-table th, .policy-table td { padding: var(--sp-2) var(--sp-3); }
+    .toc-block { padding: var(--sp-5) var(--sp-5); }
+    .contact-block { padding: var(--sp-6); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     ORGANISM: SITE HEADER
+═══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">Maestro Palco</a>
+    <a href="/" class="header-back">← Voltar ao site</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════
+     ORGANISM: HERO
+═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="legal-badge">LGPD — Lei nº 13.709/2018</div>
+    <p class="hero-kicker">Documento legal</p>
+    <h1>Política de Privacidade</h1>
+    <p class="hero-lead">
+      Transparência total sobre como coletamos, usamos e protegemos
+      os seus dados pessoais no Maestro Palco.
+    </p>
+    <p class="meta-row">
+      <span>Versão 1.0</span>
+      <span>·</span>
+      <span>Vigente desde 24 de abril de 2026</span>
+      <span>·</span>
+      <span>Última atualização: 24/04/2026</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ORGANISM: POLICY CONTENT
+═══════════════════════════════════════════════ -->
+<main class="policy-content">
+  <div class="container">
+
+    <!-- TABLE OF CONTENTS -->
+    <nav class="toc-block" aria-label="Sumário">
+      <p class="toc-title">Sumário</p>
+      <ol class="toc-list">
+        <li><a href="#controlador">Quem somos — Controlador dos Dados</a></li>
+        <li><a href="#dados-coletados">Dados que Coletamos</a></li>
+        <li><a href="#finalidade">Como Usamos seus Dados</a></li>
+        <li><a href="#base-legal">Base Legal para o Tratamento</a></li>
+        <li><a href="#compartilhamento">Compartilhamento com Terceiros</a></li>
+        <li><a href="#cookies">Cookies e Tecnologias de Rastreamento</a></li>
+        <li><a href="#seguranca">Segurança dos Dados</a></li>
+        <li><a href="#retencao">Retenção — Por Quanto Tempo Guardamos</a></li>
+        <li><a href="#direitos">Seus Direitos como Titular</a></li>
+        <li><a href="#internacional">Transferência Internacional de Dados</a></li>
+        <li><a href="#menores">Menores de Idade</a></li>
+        <li><a href="#alteracoes">Alterações nesta Política</a></li>
+        <li><a href="#contato">Como Entrar em Contato</a></li>
+      </ol>
+    </nav>
+
+    <!-- ── 01 ── CONTROLADOR ── -->
+    <article class="policy-section" id="controlador">
+      <h2>01 · Quem somos — Controlador dos Dados</h2>
+      <p>
+        O <strong>Maestro Palco</strong> é um produto digital desenvolvido e operado por
+        <strong>Edilson Morais</strong>, pessoa física, responsável por todas as decisões
+        relativas ao tratamento dos seus dados pessoais (o "Controlador"), nos termos
+        do <strong>Art. 5º, VI</strong> da Lei nº 13.709/2018 (LGPD).
+      </p>
+      <div class="info-box">
+        <p><strong>Controlador:</strong> Edilson Morais</p>
+        <p><strong>Produto:</strong> Maestro Palco</p>
+        <p><strong>Site:</strong> ferramentas-palco.rota50ia.com</p>
+        <p><strong>E-mail:</strong> <a href="mailto:edilsomdil@gmail.com">edilsomdil@gmail.com</a></p>
+        <p><strong>Encarregado (DPO):</strong> Edilson Morais — mesmo endereço de e-mail acima</p>
+      </div>
+      <p>
+        O Encarregado pelo Tratamento de Dados Pessoais (DPO), conforme <strong>Art. 41
+        da LGPD</strong>, é o próprio Controlador, que responde a todas as solicitações
+        de titulares e à Autoridade Nacional de Proteção de Dados (ANPD).
+      </p>
+    </article>
+
+    <!-- ── 02 ── DADOS COLETADOS ── -->
+    <article class="policy-section" id="dados-coletados">
+      <h2>02 · Dados que Coletamos</h2>
+      <p>
+        Coletamos apenas os dados estritamente necessários para operar o Maestro Palco
+        e cumprir as finalidades descritas nesta Política, em observância ao
+        <strong>Princípio da Necessidade (Art. 6º, III, LGPD)</strong>.
+      </p>
+
+      <h3>Dados fornecidos por você</h3>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Dado</th>
+            <th>Quando é coletado</th>
+            <th>Por quê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nome</strong></td>
+            <td>Formulário de captura / compra</td>
+            <td>Identificação e personalização do atendimento</td>
+          </tr>
+          <tr>
+            <td><strong>Endereço de e-mail</strong></td>
+            <td>Formulário de captura / compra</td>
+            <td>Entrega do produto, comunicações e suporte</td>
+          </tr>
+          <tr>
+            <td><strong>Dados de pagamento</strong></td>
+            <td>Processo de compra via Eduzz</td>
+            <td>Processados diretamente pela Eduzz — não armazenados por nós</td>
+          </tr>
+          <tr>
+            <td><strong>Informações sobre sua carreira musical</strong></td>
+            <td>Formulários internos do produto (opcional)</td>
+            <td>Personalização das ferramentas e conteúdo gerado</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Dados coletados automaticamente</h3>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Dado</th>
+            <th>Origem</th>
+            <th>Por quê</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Endereço IP</strong></td>
+            <td>Acesso ao site</td>
+            <td>Segurança e diagnóstico técnico</td>
+          </tr>
+          <tr>
+            <td><strong>Dados de navegação</strong> (páginas visitadas, tempo na página)</td>
+            <td>Cookies / Meta Pixel</td>
+            <td>Análise de performance e publicidade</td>
+          </tr>
+          <tr>
+            <td><strong>Dispositivo e navegador</strong></td>
+            <td>Acesso ao site</td>
+            <td>Compatibilidade e segurança</td>
+          </tr>
+          <tr>
+            <td><strong>Dados de abertura e clique de e-mails</strong></td>
+            <td>Plataforma de e-mail marketing</td>
+            <td>Melhoria das comunicações enviadas</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Não coletamos <strong>dados pessoais sensíveis</strong> (art. 5º, II, LGPD), como
+        origem racial, convicção religiosa, dado genético, biométrico ou relacionado à
+        saúde.
+      </p>
+    </article>
+
+    <!-- ── 03 ── FINALIDADE ── -->
+    <article class="policy-section" id="finalidade">
+      <h2>03 · Como Usamos seus Dados</h2>
+      <p>
+        Seus dados são utilizados exclusivamente para as finalidades abaixo,
+        em conformidade com o <strong>Princípio da Finalidade (Art. 6º, I, LGPD)</strong>:
+      </p>
+      <ul>
+        <li><strong>Entrega do produto:</strong> acesso à plataforma Maestro Palco e seus recursos.</li>
+        <li><strong>Comunicações transacionais:</strong> confirmação de cadastro, acesso, recibos e atualizações do produto.</li>
+        <li><strong>Comunicações de marketing:</strong> e-mails com conteúdo educacional e ofertas relacionadas ao Maestro Palco, mediante consentimento.</li>
+        <li><strong>Suporte ao cliente:</strong> resposta a dúvidas, problemas e solicitações.</li>
+        <li><strong>Melhoria do produto:</strong> análise de uso para aprimorar funcionalidades e experiência.</li>
+        <li><strong>Segurança:</strong> detecção e prevenção de fraudes e acessos não autorizados.</li>
+        <li><strong>Cumprimento de obrigações legais:</strong> quando a lei exigir conservação ou divulgação de dados.</li>
+      </ul>
+      <p>
+        Seus dados <strong>nunca serão vendidos ou cedidos a terceiros</strong> para
+        fins comerciais que não estejam descritos nesta Política.
+      </p>
+    </article>
+
+    <!-- ── 04 ── BASE LEGAL ── -->
+    <article class="policy-section" id="base-legal">
+      <h2>04 · Base Legal para o Tratamento <span class="art-ref">Art. 7º LGPD</span></h2>
+      <p>
+        Todo tratamento de dados no Maestro Palco é fundamentado em ao menos uma das
+        hipóteses legais previstas no <strong>Art. 7º da LGPD</strong>:
+      </p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Tratamento</th>
+            <th>Base Legal</th>
+            <th>Artigo LGPD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cadastro no formulário de captura (lead)</td>
+            <td>Consentimento</td>
+            <td>Art. 7º, I</td>
+          </tr>
+          <tr>
+            <td>Execução do contrato de assinatura</td>
+            <td>Execução de contrato</td>
+            <td>Art. 7º, V</td>
+          </tr>
+          <tr>
+            <td>Envio de e-mails de marketing</td>
+            <td>Consentimento</td>
+            <td>Art. 7º, I</td>
+          </tr>
+          <tr>
+            <td>Emissão de nota fiscal / registro financeiro</td>
+            <td>Cumprimento de obrigação legal</td>
+            <td>Art. 7º, II</td>
+          </tr>
+          <tr>
+            <td>Segurança e prevenção a fraudes</td>
+            <td>Legítimo interesse</td>
+            <td>Art. 7º, IX</td>
+          </tr>
+          <tr>
+            <td>Análise de performance (analytics)</td>
+            <td>Legítimo interesse / Consentimento (cookies)</td>
+            <td>Art. 7º, IX / Art. 7º, I</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        O consentimento coletado nos formulários é <strong>livre, informado e inequívoco</strong>,
+        nos termos do <strong>Art. 8º da LGPD</strong>, e pode ser revogado a qualquer momento,
+        conforme descrito na seção de direitos abaixo.
+      </p>
+    </article>
+
+    <!-- ── 05 ── COMPARTILHAMENTO ── -->
+    <article class="policy-section" id="compartilhamento">
+      <h2>05 · Compartilhamento com Terceiros</h2>
+      <p>
+        Compartilhamos seus dados apenas com os <strong>operadores e suboperadores</strong>
+        necessários para a operação do Maestro Palco, conforme o <strong>Art. 39 da LGPD</strong>.
+        Todos os parceiros são contratualmente obrigados a proteger seus dados.
+      </p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Parceiro / Plataforma</th>
+            <th>Função</th>
+            <th>Dado Compartilhado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Eduzz</strong></td>
+            <td>Processamento de pagamentos e entrega do produto digital</td>
+            <td>Nome, e-mail, dados de pagamento</td>
+          </tr>
+          <tr>
+            <td><strong>Supabase</strong></td>
+            <td>Banco de dados (armazenamento de leads e alunos)</td>
+            <td>Nome, e-mail, dados de uso</td>
+          </tr>
+          <tr>
+            <td><strong>Plataforma de e-mail marketing</strong> (Brevo ou similar)</td>
+            <td>Envio de sequências de e-mail</td>
+            <td>Nome, e-mail</td>
+          </tr>
+          <tr>
+            <td><strong>Meta (Facebook/Instagram)</strong></td>
+            <td>Publicidade e análise (Meta Pixel)</td>
+            <td>Dados de navegação e comportamento no site</td>
+          </tr>
+          <tr>
+            <td><strong>n8n</strong></td>
+            <td>Automação de fluxos internos (pós-compra, notificações)</td>
+            <td>Nome, e-mail, eventos de compra</td>
+          </tr>
+          <tr>
+            <td><strong>HostGator</strong></td>
+            <td>Hospedagem das páginas do produto</td>
+            <td>Dados de acesso (IP, logs técnicos)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Não compartilhamos dados com terceiros para fins comerciais não relacionados
+        ao Maestro Palco. Em caso de determinação judicial ou requisição de autoridade
+        competente, poderemos divulgar dados conforme obrigação legal
+        (<strong>Art. 7º, II e VI, LGPD</strong>).
+      </p>
+    </article>
+
+    <!-- ── 06 ── COOKIES ── -->
+    <article class="policy-section" id="cookies">
+      <h2>06 · Cookies e Tecnologias de Rastreamento</h2>
+      <p>
+        Utilizamos cookies e tecnologias similares nas páginas do Maestro Palco
+        para garantir o funcionamento do site, analisar o uso e veicular publicidade
+        relevante.
+      </p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Finalidade</th>
+            <th>Pode desativar?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Essenciais</strong></td>
+            <td>Funcionamento básico do site (sessão, segurança)</td>
+            <td>Não — necessários para o site funcionar</td>
+          </tr>
+          <tr>
+            <td><strong>Analíticos</strong></td>
+            <td>Entender como os visitantes usam as páginas</td>
+            <td>Sim — nas configurações do seu navegador</td>
+          </tr>
+          <tr>
+            <td><strong>Marketing</strong> (Meta Pixel ID: <code>294131638634570</code>)</td>
+            <td>Rastrear conversões e exibir anúncios personalizados</td>
+            <td>Sim — nas preferências de cookies ou configurações do Meta</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Você pode gerenciar ou desativar cookies a qualquer momento nas configurações
+        do seu navegador. A desativação de cookies essenciais pode comprometer o
+        funcionamento do site.
+      </p>
+    </article>
+
+    <!-- ── 07 ── SEGURANÇA ── -->
+    <article class="policy-section" id="seguranca">
+      <h2>07 · Segurança dos Dados <span class="art-ref">Art. 46 LGPD</span></h2>
+      <p>
+        Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados
+        contra acesso não autorizado, perda, alteração ou divulgação indevida,
+        conforme exigido pelo <strong>Art. 46 da LGPD</strong>:
+      </p>
+      <ul>
+        <li>Transmissão de dados via protocolo <strong>HTTPS / TLS</strong>.</li>
+        <li>Armazenamento em banco de dados com controle de acesso por autenticação
+            (<strong>Supabase</strong>, com Row Level Security habilitada).</li>
+        <li>Acesso restrito aos dados — apenas o Controlador e os sistemas automatizados
+            necessários para a operação têm acesso.</li>
+        <li>Senhas de usuário nunca armazenadas em texto simples.</li>
+        <li>Revisão periódica das permissões e integrações ativas.</li>
+      </ul>
+      <p>
+        Em caso de incidente de segurança que possa acarretar risco ou dano relevante
+        aos titulares, notificaremos a <strong>ANPD</strong> e os titulares afetados
+        dentro de prazo razoável, conforme <strong>Art. 48 da LGPD</strong>.
+      </p>
+    </article>
+
+    <!-- ── 08 ── RETENÇÃO ── -->
+    <article class="policy-section" id="retencao">
+      <h2>08 · Retenção — Por Quanto Tempo Guardamos seus Dados</h2>
+      <p>
+        Mantemos seus dados pelo tempo necessário para cumprir as finalidades
+        descritas nesta Política, respeitando o <strong>Princípio da Necessidade
+        (Art. 6º, III, LGPD)</strong>:
+      </p>
+      <table class="policy-table">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Prazo de Retenção</th>
+            <th>Justificativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dados de leads</strong> (nome, e-mail capturado)</td>
+            <td>Até revogação do consentimento ou 2 anos de inatividade</td>
+            <td>Consentimento / Legítimo interesse</td>
+          </tr>
+          <tr>
+            <td><strong>Dados de assinantes ativos</strong></td>
+            <td>Durante a vigência da assinatura + 5 anos</td>
+            <td>Obrigação contratual e fiscal</td>
+          </tr>
+          <tr>
+            <td><strong>Registros financeiros</strong></td>
+            <td>5 anos após encerramento</td>
+            <td>Obrigação legal (Código Tributário Nacional)</td>
+          </tr>
+          <tr>
+            <td><strong>Logs de acesso</strong></td>
+            <td>6 meses</td>
+            <td>Marco Civil da Internet (Art. 15, Lei nº 12.965/2014)</td>
+          </tr>
+          <tr>
+            <td><strong>Dados de cookies de marketing</strong></td>
+            <td>Conforme prazo da plataforma (Meta: até 180 dias)</td>
+            <td>Consentimento</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Após o término do prazo de retenção, os dados são eliminados de forma segura
+        ou anonimizados, impossibilitando a identificação do titular.
+      </p>
+    </article>
+
+    <!-- ── 09 ── DIREITOS ── -->
+    <article class="policy-section" id="direitos">
+      <h2>09 · Seus Direitos como Titular <span class="art-ref">Art. 18 LGPD</span></h2>
+      <p>
+        A LGPD garante a você, como titular dos dados, os seguintes direitos,
+        exercíveis a qualquer momento mediante solicitação ao Controlador:
+      </p>
+
+      <div class="rights-grid">
+        <div class="right-card">
+          <span class="right-icon">🔍</span>
+          <span class="right-title">Acesso</span>
+          <p>Confirmação de que tratamos seus dados e acesso à cópia das informações.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">✏️</span>
+          <span class="right-title">Correção</span>
+          <p>Retificação de dados incompletos, inexatos ou desatualizados.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">🗑️</span>
+          <span class="right-title">Eliminação</span>
+          <p>Exclusão dos dados tratados com base em consentimento, quando retirado.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">🔄</span>
+          <span class="right-title">Portabilidade</span>
+          <p>Transferência dos seus dados a outro fornecedor ou serviço.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">🚫</span>
+          <span class="right-title">Revogação do Consentimento</span>
+          <p>Retirada do consentimento a qualquer momento, sem prejuízo dos tratamentos anteriores.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">📋</span>
+          <span class="right-title">Informação sobre Compartilhamento</span>
+          <p>Saber com quais entidades públicas e privadas seus dados foram compartilhados.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">⛔</span>
+          <span class="right-title">Oposição</span>
+          <p>Opor-se ao tratamento realizado com base em hipóteses legais distintas do consentimento.</p>
+        </div>
+        <div class="right-card">
+          <span class="right-icon">⚖️</span>
+          <span class="right-title">Revisão de Decisões Automatizadas</span>
+          <p>Solicitar revisão de decisões tomadas exclusivamente com base em tratamento automatizado.</p>
+        </div>
+      </div>
+
+      <p>
+        Para exercer qualquer um desses direitos, envie um e-mail para
+        <a href="mailto:edilsomdil@gmail.com">edilsomdil@gmail.com</a> com o assunto
+        <strong>"LGPD — [Direito que deseja exercer]"</strong>. Responderemos dentro
+        de <strong>15 dias úteis</strong>.
+      </p>
+      <p>
+        Você também pode apresentar reclamação diretamente à
+        <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>
+        pelo portal <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer">gov.br/anpd</a>,
+        caso considere que seus direitos não foram atendidos adequadamente.
+      </p>
+    </article>
+
+    <!-- ── 10 ── TRANSFERÊNCIA INTERNACIONAL ── -->
+    <article class="policy-section" id="internacional">
+      <h2>10 · Transferência Internacional de Dados <span class="art-ref">Art. 33 LGPD</span></h2>
+      <p>
+        Alguns de nossos parceiros técnicos possuem servidores fora do Brasil.
+        Quando dados pessoais são transferidos internacionalmente, exigimos que
+        os operadores adotem nível de proteção compatível com a LGPD,
+        conforme <strong>Art. 33 da LGPD</strong>:
+      </p>
+      <ul>
+        <li><strong>Supabase:</strong> infraestrutura AWS, com opção de região na América do Sul (São Paulo). Os dados de leads e alunos do Maestro Palco são armazenados na região <code>sa-east-1</code> (Brasil) sempre que possível.</li>
+        <li><strong>Meta Platforms:</strong> dados processados nos EUA, sob adequação ao EU-US Data Privacy Framework e cláusulas contratuais padrão.</li>
+        <li><strong>Plataforma de e-mail marketing:</strong> processamento conforme a política de privacidade da plataforma adotada, que atende padrões GDPR e LGPD.</li>
+      </ul>
+    </article>
+
+    <!-- ── 11 ── MENORES ── -->
+    <article class="policy-section" id="menores">
+      <h2>11 · Menores de Idade</h2>
+      <p>
+        O Maestro Palco é um produto voltado exclusivamente para músicos e
+        profissionais adultos (<strong>maiores de 18 anos</strong>). Não coletamos
+        intencionalmente dados de crianças ou adolescentes. Caso identifiquemos
+        coleta acidental de dados de menor de idade, os dados serão eliminados
+        imediatamente conforme o <strong>Art. 14 da LGPD</strong>.
+      </p>
+    </article>
+
+    <!-- ── 12 ── ALTERAÇÕES ── -->
+    <article class="policy-section" id="alteracoes">
+      <h2>12 · Alterações nesta Política</h2>
+      <p>
+        Esta Política pode ser atualizada periodicamente para refletir mudanças no
+        produto, na legislação ou nas práticas de privacidade. Quando alterações
+        relevantes ocorrerem:
+      </p>
+      <ul>
+        <li>A data de "última atualização" será revisada no topo desta página.</li>
+        <li>Assinantes ativos serão notificados por e-mail com antecedência mínima de
+            <strong>15 dias</strong> antes da entrada em vigor das mudanças.</li>
+        <li>O uso continuado do produto após a vigência das alterações implica
+            aceitação da nova Política.</li>
+      </ul>
+      <p>
+        Versões anteriores desta Política estarão disponíveis mediante solicitação
+        ao Controlador.
+      </p>
+    </article>
+
+    <!-- ── 13 ── CONTATO ── -->
+    <article class="policy-section" id="contato">
+      <h2>13 · Como Entrar em Contato</h2>
+      <p>
+        Para exercer seus direitos, tirar dúvidas ou registrar qualquer reclamação
+        relacionada ao tratamento dos seus dados pessoais pelo Maestro Palco:
+      </p>
+      <div class="contact-block">
+        <h3>Encarregado de Proteção de Dados (DPO)</h3>
+        <p>Edilson Morais · Maestro Palco</p>
+        <a href="mailto:edilsomdil@gmail.com" class="contact-email">edilsomdil@gmail.com</a>
+        <p style="margin-top: 16px; font-size: 13px;">
+          Prazo de resposta: até <strong>15 dias úteis</strong> após o recebimento da solicitação.
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <p style="font-size: 13px; color: var(--m-slate-600);">
+        Esta Política foi elaborada em conformidade com a <strong>Lei Geral de Proteção
+        de Dados Pessoais — LGPD, Lei nº 13.709, de 14 de agosto de 2018</strong>,
+        e suas regulamentações subsequentes da ANPD.
+        Vigente a partir de <strong>24 de abril de 2026</strong>.
+      </p>
+    </article>
+
+  </div><!-- /.container -->
+</main>
+
+<!-- ═══════════════════════════════════════════════
+     ORGANISM: FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <a href="/" class="brand">Maestro Palco</a>
+    <p class="footer-copy">
+      © 2026 Maestro Palco · Edilson Morais ·
+      <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+      · Conforme LGPD Lei nº 13.709/2018
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
