@@ -1016,14 +1016,31 @@ window._load_script = function(url, callback, isSubmit) {
     };
     
     // MONITOR PARA DETECTAR PÁGINA DE OBRIGADO DO ACTIVECAMPAIGN
-    setInterval(function() {
-        // Verifica se apareceu a mensagem de obrigado do AC
-        if (document.body.innerHTML.includes('Obrigado por se cadastrar') || 
-            document.body.innerHTML.includes('Marketing por ActiveCampaign') ||
-            window.location.href.includes('activehosted.com')) {
-            window.location.replace('thank-you.html');
-        }
-    }, 500);
+    var formSubmitted = false;
+    var originalSubmit = form_to_submit.onsubmit;
+    
+    addEvent(form_to_submit, 'submit', function() {
+        formSubmitted = true;
+        // Só monitora APÓS o formulário ser enviado
+        setTimeout(function() {
+            var checkRedirect = setInterval(function() {
+                // Verifica se apareceu a mensagem de obrigado do AC E o form foi enviado
+                if (formSubmitted && (
+                    document.body.innerHTML.includes('Obrigado por se cadastrar!') ||
+                    (document.body.innerHTML.includes('Marketing por') && document.body.innerHTML.includes('ActiveCampaign')) ||
+                    window.location.href.includes('activehosted.com')
+                )) {
+                    clearInterval(checkRedirect);
+                    window.location.replace('thank-you.html');
+                }
+            }, 200);
+            
+            // Para o monitor após 10 segundos para não ficar rodando indefinidamente
+            setTimeout(function() {
+                clearInterval(checkRedirect);
+            }, 10000);
+        }, 1000);
+    });
 })();
 
 </script>
