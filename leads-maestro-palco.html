@@ -228,6 +228,7 @@ src="https://www.facebook.com/tr?id=294131638634570&ev=PageView&noscript=1"
         <input type="hidden" name="act" value="sub" />
         <input type="hidden" name="v" value="2" />
         <input type="hidden" name="or" value="37645a66-4706-4946-a5e4-e6defdf90ee2" />
+        <input type="hidden" name="redirect" value="https://leads-maestro-palco.rota50ia.com/thank-you.html" />
         <div class="_form-content">
           <div class="_form_element _field_header _full_width _clear" >
             <h2 class="_form-title">
@@ -950,17 +951,27 @@ window._load_script = function(url, callback, isSubmit) {
             }
             if (formSupportsPost) {
                 submitForm().then((data) => {
-                    eval(data.js);
+                    // Redirecionar para página de obrigado após sucesso
+                    window.location.href = 'thank-you.html';
                 }).catch(() => {
                     _show_error("1", "Desculpe, seu envio falhou. Tente novamente.");
                 });
             } else {
-                _load_script('https://edilsomdil79386.activehosted.com/proc.php?' + serialized + '&jsonp=true', null, true);
+                _load_script('https://edilsomdil79386.activehosted.com/proc.php?' + serialized + '&jsonp=true&redirect=' + encodeURIComponent('thank-you.html'), null, true);
             }
         }
         return false;
     };
     addEvent(form_to_submit, 'submit', form_submit);
+    
+    // Callback function para redirecionar após sucesso do ActiveCampaign
+    window._form_callback = function(id) {
+        if (id === '1') {
+            setTimeout(function() {
+                window.location.href = 'thank-you.html';
+            }, 1000);
+        }
+    };
 })();
 
 </script>
